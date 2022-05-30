@@ -185,10 +185,11 @@ class _libraryScreenState extends State<libraryScreen> {
                 ),
                 Container(
                   height: 170,
+                  // color: Colors.redAccent,
                   child: ListView.separated(
                     separatorBuilder: (context, index) {
                       return Container(
-                        margin: EdgeInsets.only(right: 10),
+                        margin: EdgeInsets.only(right: 0),
                       );
                     },
                     padding: EdgeInsets.only(left: 10),
@@ -196,9 +197,10 @@ class _libraryScreenState extends State<libraryScreen> {
                     itemCount: YoutubeHistoryList.length,
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
-                        width: 179,
+                        width: 190,
                         child: Material(
-                          color: Theme.of(context).backgroundColor,
+                          // color: Theme.of(context).backgroundColor,
+                          color: Colors.orange,
                           child: Ink(
                             child: InkWell(
                               onTap: () {},
@@ -211,7 +213,6 @@ class _libraryScreenState extends State<libraryScreen> {
                                         child: Container(
                                           height: 90,
                                           width: 170,
-                                          color: Colors.orange,
                                           child: Image.network(
                                             YoutubeHistoryList[index]['image']
                                                 .toString(),
@@ -223,13 +224,16 @@ class _libraryScreenState extends State<libraryScreen> {
                                         child: Align(
                                           alignment: Alignment.bottomRight,
                                           child: Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(2),
+                                              color: Colors.black,
+                                            ),
                                             margin: const EdgeInsets.only(
-                                                right: 10, bottom: 6),
+                                                right: 10, bottom: 10),
                                             padding: EdgeInsets.symmetric(
                                               horizontal: 5,
-                                              vertical: 1,
                                             ),
-                                            color: Colors.black,
                                             child: Text(
                                               YoutubeHistoryList[index]
                                                       ['duration']
@@ -263,43 +267,82 @@ class _libraryScreenState extends State<libraryScreen> {
                                   const SizedBox(
                                     height: 8,
                                   ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                  Stack(
                                     children: [
                                       Container(
                                         width: 150,
                                         child: Text(
                                           YoutubeHistoryList[index]
-                                                  ['main_title']
+                                          ['main_title']
                                               .toString(),
                                           overflow: TextOverflow.ellipsis,
                                           maxLines: 2,
                                           style: TextStyle(
                                             fontSize: 16,
                                             color:
-                                                Theme.of(context).primaryColor,
+                                            Theme.of(context).primaryColor,
                                           ),
                                         ),
                                       ),
-                                      SizedBox(),
-                                      Material(
-                                        color: Colors.transparent,
-                                        child: Ink(
-                                          width: 20,
-                                          child: InkWell(
-                                            onTap: () {},
-                                            child: const Icon(
-                                              Icons.more_vert,
-                                              size: 20,
+                                      Positioned.fill(
+                                        child: Align(
+                                          child: Container(
+                                            alignment: Alignment.topRight,
+                                            width: 40,
+                                            height: 20,
+                                            child: IconButton(
+                                              padding: EdgeInsets.zero,
+                                              splashRadius: 25,
+                                              onPressed: () {},
+                                              icon: Icon(
+                                                Icons.more_vert,
+                                                size: 20,
+                                                color: Theme.of(context).primaryColor,
+                                              ),
                                             ),
                                           ),
                                         ),
                                       ),
                                     ],
                                   ),
+                                  // Row(
+                                  //   crossAxisAlignment:
+                                  //       CrossAxisAlignment.start,
+                                  //   mainAxisAlignment:
+                                  //       MainAxisAlignment.spaceBetween,
+                                  //   children: [
+                                  //     Container(
+                                  //       width: 150,
+                                  //       child: Text(
+                                  //         YoutubeHistoryList[index]
+                                  //                 ['main_title']
+                                  //             .toString(),
+                                  //         overflow: TextOverflow.ellipsis,
+                                  //         maxLines: 2,
+                                  //         style: TextStyle(
+                                  //           fontSize: 16,
+                                  //           color:
+                                  //               Theme.of(context).primaryColor,
+                                  //         ),
+                                  //       ),
+                                  //     ),
+                                  //     SizedBox(),
+                                  //     Container(
+                                  //       width: 40,
+                                  //       height: 20,
+                                  //       child: IconButton(
+                                  //         padding: EdgeInsets.zero,
+                                  //         splashRadius: 25,
+                                  //         onPressed: () {},
+                                  //         icon: Icon(
+                                  //           Icons.more_vert,
+                                  //           size: 20,
+                                  //           color: Theme.of(context).primaryColor,
+                                  //         ),
+                                  //       ),
+                                  //     ),
+                                  //   ],
+                                  // ),
                                   SizedBox(
                                     height: 2,
                                   ),
