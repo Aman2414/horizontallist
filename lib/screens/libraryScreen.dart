@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import '../Provider/theme_provider.dart';
@@ -19,35 +18,40 @@ class _libraryScreenState extends State<libraryScreen> {
     {
       'main_title':
           'Office Lift - Part 3 | RJ Naved | Pankit | Mirchi Murga | Hello World Long Text',
-      'image': 'https://uhdwallpapers.org/uploads/converted/19/08/03/huawei-mediapad-m6-stock-wallpaper-1280x720_666874-mm-90.webp',
+      'image':
+          'https://uhdwallpapers.org/uploads/converted/19/08/03/huawei-mediapad-m6-stock-wallpaper-1280x720_666874-mm-90.webp',
       'sub_title': 'Mirchi Murga',
       'duration': '5:25',
       'progress': '0.2',
     },
     {
       'main_title': 'Do You Think Men Are Important? - After Dark Edit',
-      'image': 'https://uhdwallpapers.org/uploads/converted/19/08/03/huawei-mediapad-m6-stock-wallpaper-1280x720_666874-mm-90.webp',
+      'image':
+          'https://uhdwallpapers.org/uploads/converted/19/08/03/huawei-mediapad-m6-stock-wallpaper-1280x720_666874-mm-90.webp',
       'sub_title': 'Yes2Day',
       'duration': '1:31',
       'progress': '1.0',
     },
     {
       'main_title': 'Nothing Comes Easy | TBG',
-      'image': 'https://uhdwallpapers.org/uploads/converted/19/08/03/huawei-mediapad-m6-stock-wallpaper-1280x720_666874-mm-90.webp',
+      'image':
+          'https://uhdwallpapers.org/uploads/converted/19/08/03/huawei-mediapad-m6-stock-wallpaper-1280x720_666874-mm-90.webp',
       'sub_title': 'The Business Gyan',
       'duration': '1:25',
       'progress': '0.4',
     },
     {
       'main_title': 'Work Ethic - Dwayne Johnson',
-      'image': 'https://uhdwallpapers.org/uploads/converted/19/08/03/huawei-mediapad-m6-stock-wallpaper-1280x720_666874-mm-90.webp',
+      'image':
+          'https://uhdwallpapers.org/uploads/converted/19/08/03/huawei-mediapad-m6-stock-wallpaper-1280x720_666874-mm-90.webp',
       'sub_title': 'Ben Lionel Scott',
       'duration': '2:58',
       'progress': '0.7',
     },
     {
       'main_title': 'Lift Wala Murga | Part 6 | Hum Saath Saath Hai',
-      'image': 'https://uhdwallpapers.org/uploads/converted/19/08/03/huawei-mediapad-m6-stock-wallpaper-1280x720_666874-mm-90.webp',
+      'image':
+          'https://uhdwallpapers.org/uploads/converted/19/08/03/huawei-mediapad-m6-stock-wallpaper-1280x720_666874-mm-90.webp',
       'sub_title': 'Mirchi Murga',
       'duration': '4:03',
       'progress': '0.9',
@@ -55,14 +59,16 @@ class _libraryScreenState extends State<libraryScreen> {
     {
       'main_title':
           'Change Your Mind And Get Anything You Want | Ed Mylett, Dave',
-      'image': 'https://uhdwallpapers.org/uploads/converted/19/08/03/huawei-mediapad-m6-stock-wallpaper-1280x720_666874-mm-90.webp',
+      'image':
+          'https://uhdwallpapers.org/uploads/converted/19/08/03/huawei-mediapad-m6-stock-wallpaper-1280x720_666874-mm-90.webp',
       'sub_title': 'Ivlup survival',
       'duration': '4:43',
       'progress': '1.0',
     },
     {
       'main_title': 'Pro-Insights with @Tanmay Bhat | How Tanmay thinks?',
-      'image': 'https://uhdwallpapers.org/uploads/converted/19/08/03/huawei-mediapad-m6-stock-wallpaper-1280x720_666874-mm-90.webp',
+      'image':
+          'https://uhdwallpapers.org/uploads/converted/19/08/03/huawei-mediapad-m6-stock-wallpaper-1280x720_666874-mm-90.webp',
       'sub_title': 'Aman Dhattarwal',
       'duration': '34:23',
       'progress': '0.1',
@@ -178,20 +184,21 @@ class _libraryScreenState extends State<libraryScreen> {
                   ),
                 ),
                 Container(
-                  height: 150,
-                  child: ListView.builder(
-                    padding: EdgeInsets.zero,
+                  height: 170,
+                  child: ListView.separated(
+                    separatorBuilder: (context, index) {
+                      return Container(
+                        margin: EdgeInsets.only(right: 10),
+                      );
+                    },
+                    padding: EdgeInsets.only(left: 10),
                     scrollDirection: Axis.horizontal,
                     itemCount: YoutubeHistoryList.length,
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
-                        // width: 200,
-                        width: 163,
-                        height: 120,
-                        margin: const EdgeInsets.only(right: 10),
+                        width: 179,
                         child: Material(
-                          // color: Theme.of(context).backgroundColor,
-                          color: Colors.orange,
+                          color: Theme.of(context).backgroundColor,
                           child: Ink(
                             child: InkWell(
                               onTap: () {},
@@ -202,12 +209,14 @@ class _libraryScreenState extends State<libraryScreen> {
                                     children: [
                                       ClipRect(
                                         child: Container(
-                                          color: Colors.greenAccent,
-                                          height: 70,
-                                          width: 120,
+                                          height: 90,
+                                          width: 170,
+                                          color: Colors.orange,
                                           child: Image.network(
-                                              YoutubeHistoryList[index]['image']
-                                                  .toString()),
+                                            YoutubeHistoryList[index]['image']
+                                                .toString(),
+                                            fit: BoxFit.fill,
+                                          ),
                                         ),
                                       ),
                                       Positioned.fill(
@@ -233,19 +242,26 @@ class _libraryScreenState extends State<libraryScreen> {
                                           ),
                                         ),
                                       ),
+                                      Positioned.fill(
+                                        child: Align(
+                                          alignment: Alignment.bottomCenter,
+                                          child: LinearProgressIndicator(
+                                            backgroundColor: Colors.grey,
+                                            valueColor:
+                                                const AlwaysStoppedAnimation(
+                                                    Colors.red),
+                                            value: double.parse(
+                                              YoutubeHistoryList[index]
+                                                      ['progress']
+                                                  .toString(),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
                                     ],
                                   ),
-                                  LinearProgressIndicator(
-                                    backgroundColor: Colors.grey,
-                                    valueColor: const AlwaysStoppedAnimation(
-                                        Colors.red),
-                                    value: double.parse(
-                                      YoutubeHistoryList[index]['progress']
-                                          .toString(),
-                                    ),
-                                  ),
                                   const SizedBox(
-                                    height: 5,
+                                    height: 8,
                                   ),
                                   Row(
                                     crossAxisAlignment:
@@ -268,10 +284,11 @@ class _libraryScreenState extends State<libraryScreen> {
                                           ),
                                         ),
                                       ),
-                                      //SizedBox(),
+                                      SizedBox(),
                                       Material(
                                         color: Colors.transparent,
                                         child: Ink(
+                                          width: 20,
                                           child: InkWell(
                                             onTap: () {},
                                             child: const Icon(
@@ -283,11 +300,14 @@ class _libraryScreenState extends State<libraryScreen> {
                                       ),
                                     ],
                                   ),
+                                  SizedBox(
+                                    height: 2,
+                                  ),
                                   Text(
                                     YoutubeHistoryList[index]['sub_title']
                                         .toString(),
                                     style: TextStyle(
-                                      fontSize: 15,
+                                      fontSize: 14,
                                       color: Colors.grey.shade400,
                                     ),
                                   ),
